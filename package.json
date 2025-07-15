@@ -1,0 +1,82 @@
+{
+  "name": "@openfloor/protocol",
+  "version": "0.0.1",
+  "description": "Open Floor Protocol implementation for JavaScript/TypeScript - enables interoperable multi-agent conversations",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist/",
+    "schemas/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:cjs",
+    "build:cjs": "esbuild dist/index.js --bundle --platform=node --target=node16 --format=cjs --outfile=dist/index.cjs --external:crypto",
+    "build:watch": "tsc --watch",
+    "bundle": "esbuild src/index.ts --bundle --platform=browser --format=iife --global-name=openfloor --outfile=dist/bundle.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "docs": "typedoc src/index.ts --out docs"
+  },
+  "keywords": [
+    "open-floor",
+    "conversational-ai",
+    "multi-agent",
+    "interoperability",
+    "dialog-system",
+    "voice-assistant",
+    "ai-agents",
+    "typescript"
+  ],
+  "author": "Open Voice Interoperability Initiative",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/open-voice-interoperability/openfloor-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/open-voice-interoperability/openfloor-js/issues"
+  },
+  "homepage": "https://github.com/open-voice-interoperability/openfloor-js#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.14",
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "esbuild": "^0.25.6",
+    "eslint": "^9.31.0",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "typedoc": "^0.28.7",
+    "typedoc-theme-hierarchy": "^6.0.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1"
+  },
+  "peerDependencies": {
+    "ajv": "^8.0.0"
+  },
+  "peerDependenciesMeta": {
+    "ajv": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11"
+  ]
+}
