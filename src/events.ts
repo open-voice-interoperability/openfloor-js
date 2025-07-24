@@ -318,7 +318,7 @@ import {
    * 
    * @example
    * ```typescript
-   * const publishEvent = new PublishManifestEvent({
+   * const publishEvent = new PublishManifestsEvent({
    *   servicingManifests: [{
    *     identification: {
    *       speakerUri: 'tag:example.com,2025:weather-bot',
@@ -330,13 +330,13 @@ import {
    * });
    * ```
    */
-  export class PublishManifestEvent extends Event {
+  export class PublishManifestsEvent extends Event {
     readonly servicingManifests: readonly Manifest[];
     readonly discoveryManifests: readonly Manifest[];
   
     /**
-     * Creates a new PublishManifestEvent instance
-     * @param options - PublishManifestEvent configuration options
+     * Creates a new PublishManifestsEvent instance
+     * @param options - PublishManifestsEvent configuration options
      */
     constructor(options: PublishManifestsEventOptions) {
       const { servicingManifests = [], discoveryManifests = [], to, reason } = options;
@@ -344,7 +344,7 @@ import {
       const servicingInstances = servicingManifests.map(manifest => new Manifest(manifest));
       const discoveryInstances = discoveryManifests.map(manifest => new Manifest(manifest));
   
-      const baseOptions: BaseEventOptions = { eventType: 'publishManifest', parameters: {
+      const baseOptions: BaseEventOptions = { eventType: 'publishManifests', parameters: {
         servicingManifests: servicingInstances.map(m => m.toObject()),
         discoveryManifests: discoveryInstances.map(m => m.toObject())
       } };
@@ -356,7 +356,7 @@ import {
       this.discoveryManifests = Object.freeze(discoveryInstances);
     }
   
-    static fromObject(data: Record<string, unknown>): PublishManifestEvent {
+    static fromObject(data: Record<string, unknown>): PublishManifestsEvent {
       const params = (data.parameters as Record<string, unknown>) || {};
       const options: PublishManifestsEventOptions = {
         servicingManifests: Array.isArray(params.servicingManifests) ? params.servicingManifests : [],
@@ -364,7 +364,7 @@ import {
       };
       if (typeof data.reason === 'string') options.reason = data.reason;
       if (data.to && typeof data.to === 'object') options.to = To.fromObject(data.to as Record<string, unknown>).toObject() as ToOptions;
-      return new PublishManifestEvent(options);
+      return new PublishManifestsEvent(options);
     }
   }
   
@@ -529,8 +529,8 @@ import {
         return ByeEvent.fromObject(data);
       case 'getManifests':
         return GetManifestsEvent.fromObject(data);
-      case 'publishManifest':
-        return PublishManifestEvent.fromObject(data);
+      case 'publishManifests':
+        return PublishManifestsEvent.fromObject(data);
       case 'requestFloor':
         return RequestFloorEvent.fromObject(data);
       case 'grantFloor':
@@ -594,10 +594,10 @@ import {
   }
   
   /**
-   * Type guard to check if an event is a PublishManifestEvent
+   * Type guard to check if an event is a PublishManifestsEvent
    */
-  export function isPublishManifestEvent(event: Event): event is PublishManifestEvent {
-    return event.eventType === 'publishManifest';
+  export function isPublishManifestsEvent(event: Event): event is PublishManifestsEvent {
+    return event.eventType === 'publishManifests';
   }
   
   /**

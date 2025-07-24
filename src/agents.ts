@@ -15,7 +15,7 @@ import {
   InviteEvent,
   UninviteEvent,
   GetManifestsEvent,
-  PublishManifestEvent,
+  PublishManifestsEvent,
   GrantFloorEvent,
   RevokeFloorEvent,
   isUtteranceEvent,
@@ -375,7 +375,7 @@ export class BotAgent extends OpenFloorAgent {
    * Handle getManifests events - return own manifest
    */
   private async _handleGetManifests(event: GetManifestsEvent, inEnvelope: Envelope, outEnvelope: Envelope): Promise<void> {
-    const responseEvent = new PublishManifestEvent({
+    const responseEvent = new PublishManifestsEvent({
       servicingManifests: [this._manifest.toObject() as any],
       discoveryManifests: []
     });

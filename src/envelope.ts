@@ -684,7 +684,7 @@ import {
     constructor(options: BaseEventOptions) {
       const allowedEventTypes = [
         'utterance', 'context', 'invite', 'uninvite', 'declineInvite', 'bye',
-        'getManifests', 'publishManifest', 'requestFloor', 'grantFloor', 'revokeFloor', 'yieldFloor'
+        'getManifests', 'publishManifests', 'requestFloor', 'grantFloor', 'revokeFloor', 'yieldFloor'
       ];
       if (!options.eventType || !allowedEventTypes.includes(options.eventType)) {
         throw new Error(`Invalid eventType: ${options.eventType}`);

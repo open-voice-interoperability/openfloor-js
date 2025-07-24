@@ -1,6 +1,6 @@
 <img src="https://github.com/open-voice-interoperability/artwork/blob/main/horizontal/color/Interoperability_Logo_color.png" width="300" alt="Open Floor Protocol Logo">
 
-# Open Floor Protocol (OFP) — TypeScript Implementation
+# Open Floor Protocol (OFP)
 
 [![npm version](https://img.shields.io/npm/v/@openfloor/protocol.svg)](https://www.npmjs.com/package/@openfloor/protocol)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue.svg)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 
 ---
 
-> **A strict, standards-compliant TypeScript library for the [Open Floor Protocol (OFP)](https://github.com/open-voice-interoperability/docs), enabling interoperable, multi-agent conversational AI.**
+> **A TypeScript library for the [Open Floor Protocol (OFP)](https://github.com/open-voice-interoperability/docs), enabling interoperable, multi-agent conversational AI.**
 
 ---
 
@@ -30,12 +30,6 @@ The Open Floor Protocol (OFP) is an open standard for multi-agent, multi-party c
 - **Dialog Event** (utterances, context, etc.)
 - **Assistant Manifest** (agent capabilities/identity)
 - **Agent behaviors** (bot, floor manager, convener)
-
-**Goals:**
-- 100% schema compliance (see `/schemas`)
-- Robust automated testing (see `/tests`)
-- Developer-friendly, modern TypeScript API
-- Interoperability with all OFP-compliant agents
 
 ---
 

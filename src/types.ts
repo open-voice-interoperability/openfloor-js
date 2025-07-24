@@ -17,7 +17,7 @@ export type EventType =
   | 'declineInvite'
   | 'bye'
   | 'getManifests'
-  | 'publishManifest'
+  | 'publishManifests'
   | 'requestFloor'
   | 'grantFloor'
   | 'revokeFloor'
