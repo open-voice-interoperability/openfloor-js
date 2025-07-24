@@ -18,7 +18,6 @@
 - [Installation](#installation)
 - [Usage](#usage)
 - [Protocol Overview](#protocol-overview)
-- [API Reference](#api-reference)
 - [Testing & Development](#testing--development)
 
 ---
@@ -42,6 +41,8 @@ npm install @openfloor/protocol
 ---
 
 ## Usage
+
+You can find more examples and full tutorials on [openfloor.dev](https://openfloor.dev).
 
 ### Create a Text Utterance Event
 ```typescript
@@ -111,13 +112,6 @@ if (result.valid) {
 - [Dialog Event Schema](./schemas/dialog-event/1.0.2/dialog-event-schema.json)
 - [Assistant Manifest Schema](./schemas/assistant-manifest/1.0.0/assistant-manifest-schema.json)
 
----
-
-## API Reference
-
-- **[TypeDoc Documentation](https://open-voice-interoperability.github.io/openfloor-js/)**
-- All main classes, types, and utilities are exported from the package root.
-- See `/src/index.ts` for full API surface.
 
 ---
 
@@ -135,5 +129,3 @@ if (result.valid) {
   ```sh
   npm run docs
   ```
-
-
