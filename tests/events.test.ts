@@ -69,12 +69,12 @@ describe('OFP Event Construction and Routing', () => {
     expect(event.toObject().eventType).toBe('getManifests');
   });
 
-  it('constructs a minimal publishManifest event', () => {
+  it('constructs a minimal publishManifests event', () => {
     const event = new Event({
-      eventType: 'publishManifest' as EventType,
+      eventType: 'publishManifests' as EventType,
       parameters: { servicingManifests: [] }
     });
-    expect(event.toObject().eventType).toBe('publishManifest');
+    expect(event.toObject().eventType).toBe('publishManifests');
   });
 
   it('constructs a minimal requestFloor event', () => {

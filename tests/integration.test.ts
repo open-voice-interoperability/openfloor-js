@@ -16,14 +16,14 @@ describe('OFP Integration Flows', () => {
     const getResult = validateEnvelope({ openFloor: getEnv.toObject() });
     expect(getResult.valid).toBe(true);
 
-    // publishManifest envelope (response)
+    // publishManifests envelope (response)
     const publishEnv = new Envelope({
       schema: { version: '1.0.0' },
       conversation: { id: 'conv-1' },
       sender: { speakerUri: 'tag:example.com,2025:discovery-agent' },
       events: [
         {
-          eventType: 'publishManifest' as EventType,
+          eventType: 'publishManifests' as EventType,
           to: { speakerUri: 'tag:example.com,2025:fm-1' },
           parameters: {
             servicingManifests: [

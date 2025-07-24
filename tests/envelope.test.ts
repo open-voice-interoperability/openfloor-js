@@ -63,7 +63,7 @@ describe('OFP Envelope Creation and Validation', () => {
     expect(result.valid).toBe(true);
   });
 
-  it('creates and validates a publishManifest envelope', () => {
+  it('creates and validates a publishManifests envelope', () => {
     const idOptions = {
       speakerUri: 'tag:example.com,2025:agent-2',
       serviceUrl: 'https://agent2',
@@ -86,7 +86,7 @@ describe('OFP Envelope Creation and Validation', () => {
       })
     ];
     const events = [
-      { eventType: 'publishManifest' as EventType, parameters: { servicingManifests: manifests.map(m => m.toObject()) } }
+      { eventType: 'publishManifests' as EventType, parameters: { servicingManifests: manifests.map(m => m.toObject()) } }
     ];
     const env = new Envelope({ schema, conversation, sender, events });
     const result = validateEnvelope({ openFloor: env.toObject() });
